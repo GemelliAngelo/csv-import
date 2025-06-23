@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Table from "../components/table";
 import Form from "../components/form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function IndexPage() {
   const [file, setFile] = useState();
@@ -27,6 +29,11 @@ export default function IndexPage() {
   const headerKeys = Object.keys(Object.assign({}, ...items));
   return (
     <>
+      <div className="text-center">
+        <h3 className="text-center">Importa qui il tuo file ".csv"</h3>
+        <FontAwesomeIcon icon={faArrowDown} size="lg" bounce />
+      </div>
+
       <Form
         csvFileToArray={csvFileToArray}
         file={file}

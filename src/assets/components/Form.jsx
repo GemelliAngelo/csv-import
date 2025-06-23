@@ -24,7 +24,7 @@ export default function Form({
     }
   };
   return (
-    <form className="py-5">
+    <form className="pb-5">
       <div className="form-control w-50 mx-auto">
         <input
           type="file"
