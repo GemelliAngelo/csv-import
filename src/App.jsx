@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <h1 className="text-center">CSV Input</h1>
+      <h1 className="text-center">CSV Import</h1>
       <form className="py-5">
         <div className="form-control w-50 mx-auto">
           <input
@@ -75,7 +75,7 @@ function App() {
         </div>
       </form>
 
-      <table className="table table-dark table-striped table-hover">
+      <table className="table table-striped table-hover">
         <thead>
           <tr>
             {headerKeys.map((key) => (
