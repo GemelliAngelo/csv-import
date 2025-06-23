@@ -1,4 +1,10 @@
-export default function Form({ csvFileToArray, file, setFile }) {
+export default function Form({
+  csvFileToArray,
+  file,
+  setFile,
+  noPrice,
+  setNoPrice,
+}) {
   const handleOnChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -28,6 +34,18 @@ export default function Form({ csvFileToArray, file, setFile }) {
           className="form-control"
           onChange={handleOnChange}
         />
+        <div className="form-check form-switch pt-2">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="noPrice"
+            checked={noPrice}
+            onChange={(e) => setNoPrice(e.target.checked)}
+          />
+          <label className="form-check-label" htmlFor="noPrice">
+            Mostra elementi senza senza prezzo
+          </label>
+        </div>
         <div className="d-flex gap-2 pt-3">
           <button
             className="btn btn-outline-danger w-100"

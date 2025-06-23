@@ -5,6 +5,7 @@ import Form from "../components/form";
 
 export default function IndexPage() {
   const [file, setFile] = useState();
+  const [noPrice, setNoPrice] = useState(false);
   const [items, setItems] = useState([]);
 
   const csvFileToArray = (string) => {
@@ -14,7 +15,7 @@ export default function IndexPage() {
     const array = csvRows.map((row) => {
       const values = row.split(",");
       const obj = csvHeader.reduce((object, header, index) => {
-        object[header] = values[index];
+        object[header.trim()] = values[index].trim();
         return object;
       }, {});
       return obj;
@@ -26,8 +27,14 @@ export default function IndexPage() {
   const headerKeys = Object.keys(Object.assign({}, ...items));
   return (
     <>
-      <Form csvFileToArray={csvFileToArray} file={file} setFile={setFile} />
-      <Table headerKeys={headerKeys} items={items} />
+      <Form
+        csvFileToArray={csvFileToArray}
+        file={file}
+        setFile={setFile}
+        noPrice={noPrice}
+        setNoPrice={setNoPrice}
+      />
+      <Table headerKeys={headerKeys} items={items} noPrice={noPrice} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-export default function Table({ headerKeys, items }) {
+export default function Table({ headerKeys, items, noPrice }) {
   return (
     <table className="table table-striped table-hover">
       <thead>
@@ -11,15 +11,29 @@ export default function Table({ headerKeys, items }) {
         </tr>
       </thead>
 
-      <tbody>
-        {items.map((item, index) => (
-          <tr key={index}>
-            {Object.values(item).map((val) => (
-              <td key={val}>{val}</td>
+      {noPrice ? (
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index}>
+              {Object.values(item).map((val) => (
+                <td key={val}>{val}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      ) : (
+        <tbody>
+          {items
+            .filter((item) => item.price)
+            .map((item, index) => (
+              <tr key={index}>
+                {Object.values(item).map((val) => (
+                  <td key={val}>{val}</td>
+                ))}
+              </tr>
             ))}
-          </tr>
-        ))}
-      </tbody>
+        </tbody>
+      )}
     </table>
   );
 }
