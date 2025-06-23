@@ -45,7 +45,7 @@ function App() {
     <>
       <h1 className="text-center">CSV Input</h1>
       <form className="py-5">
-        <div className="input-group w-50 mx-auto">
+        <div className="form-control w-50 mx-auto">
           <input
             type="file"
             accept=".csv"
@@ -54,14 +54,24 @@ function App() {
             className="form-control"
             onChange={handleOnChange}
           />
-          <button
-            className="btn btn-dark"
-            onClick={(e) => {
-              handleOnSubmit(e);
-            }}
-          >
-            Stampa CSV in una tabella
-          </button>
+          <div className="d-flex gap-2 pt-3">
+            <button
+              className="btn btn-outline-danger w-100"
+              onClick={() => {
+                setFile();
+              }}
+            >
+              Annulla
+            </button>
+            <button
+              className="btn btn-outline-dark w-100"
+              onClick={(e) => {
+                handleOnSubmit(e);
+              }}
+            >
+              Stampa CSV in una tabella
+            </button>
+          </div>
         </div>
       </form>
 
