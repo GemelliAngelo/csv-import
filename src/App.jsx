@@ -30,8 +30,8 @@ function App() {
     e.preventDefault();
 
     if (file) {
-      fileReader.onload = function (event) {
-        const text = event.target.result;
+      fileReader.onload = (e) => {
+        const text = e.target.result;
         csvFileToArray(text);
       };
 
@@ -56,12 +56,13 @@ function App() {
             handleOnSubmit(e);
           }}
         >
-          IMPORT CSV
+          Stampa CSV in una tabella
         </button>
       </form>
+
       <table className="table">
         <thead>
-          <tr key={"header"}>
+          <tr>
             {headerKeys.map((key) => (
               <th scope="col" key={key}>
                 {key}
