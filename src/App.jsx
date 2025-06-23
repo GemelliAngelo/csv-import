@@ -65,7 +65,7 @@ function App() {
         </div>
       </form>
 
-      <table className="table table-striped">
+      <table className="table table-dark table-striped table-hover">
         <thead>
           <tr>
             {headerKeys.map((key) => (
